@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="?page=home">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div> 
@@ -44,7 +44,16 @@
     <li class="nav-item">
         <a class="nav-link" href="?page=listUsers">
             <i class="fa-solid fa-user"></i>
-            <span>User</span></a>
+            <span>Users</span></a>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Nav Item - list comment -->
+    <li class="nav-item">
+        <a class="nav-link" href="?page=listComments">
+            <i class="fas fa-comments"></i>
+            <span>Comments</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

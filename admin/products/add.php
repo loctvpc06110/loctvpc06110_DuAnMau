@@ -66,6 +66,7 @@ if (isset($_POST['addProd'])) {
 
     move_uploaded_file($image_tmp, 'content/img/prod/' . $image);
     move_uploaded_file($image_tmp, '../site/content/img/prod/' . $image);
+    
     echo "<script>document.location='index.php?page=listProducts';</script>";
 }
 

@@ -54,7 +54,7 @@
                             </h4>
                         </div>
                     </a>
-                    <button name="add-cart" type="submit"><i class="fa-solid fa-cart-shopping cart"></i></button>
+                    <i class="fa-solid fa-cart-shopping cart"></i>
                 </form>
             </div>
 

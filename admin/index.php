@@ -59,6 +59,7 @@
                     include('products/product.php');
                     include('catrgories/category.php');
                     include('users/user.php');
+                    include('comments/comment.php');
 
                     if (isset($_GET["page"])) {
                         $url = $_GET["page"];
@@ -96,6 +97,12 @@
                             break;
                         case "listUsers":
                             include('users/list.php');
+                            break;
+                        case "listComments":
+                            include('comments/list.php');
+                            break;
+                        case "detailComment":
+                            include('comments/detail.php');
                             break;
                         case "login":
                             include('includes/login.php');
@@ -144,12 +151,6 @@
     <!-- Custom scripts for all pages-->
     <script src="content/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="content/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="content/js/demo/chart-area-demo.js"></script>
-    <script src="content/js/demo/chart-pie-demo.js"></script>
 
     <!-- Page level plugins -->
     <script src="content/vendor/datatables/jquery.dataTables.min.js"></script>
@@ -158,6 +159,43 @@
     <!-- Page level custom scripts -->
     <script src="content/js/demo/datatables-demo.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        <?php
+        $db_cmt = new Comment();
+
+        ?>
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Comment',
+                    data: [<?echo $db_cmt->cmt_month(1)?>,
+                    <?echo $db_cmt->cmt_month(2)?>,
+                    <?echo $db_cmt->cmt_month(3)?>,
+                    <?echo $db_cmt->cmt_month(4)?>,
+                    <?echo $db_cmt->cmt_month(5)?>,
+                    <?echo $db_cmt->cmt_month(6)?>,
+                    <?echo $db_cmt->cmt_month(7)?>,
+                    <?echo $db_cmt->cmt_month(8)?>,
+                    <?echo $db_cmt->cmt_month(9)?>,
+                    <?echo $db_cmt->cmt_month(10)?>,
+                    <?echo $db_cmt->cmt_month(11)?>,
+                    <?echo $db_cmt->cmt_month(12)?>],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

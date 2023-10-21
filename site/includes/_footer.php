@@ -37,10 +37,10 @@
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-                <img src="../content/img/app.jpg">
-                <img src="../content/img/play.jpg">
+                <img src="content/img/app.jpg">
+                <img src="content/img/play.jpg">
             </div>
             <p>Secured Payment Geteways</p>
-            <img src="../content/img/pay.png">
+            <img src="content/img/pay.png">
         </div>
 </footer>

@@ -49,19 +49,26 @@ $row = $db->getDetailProductByID($id);
 </section>
 
 <?php
-$email = $_SESSION['login_email_user'];
-$db_user = new User();
-$row_user = $db_user->getByEmail($email);
 
+if (isset($_SESSION['login_email_user'])) {
 
-if (isset($_POST['comment'])) {
-    $content = $_POST['content'];
+    $email = $_SESSION['login_email_user'];
+    $db_user = new User();
+    $row_user = $db_user->getByEmail($email);
 
-    $cmt = $db_comment->createComment($id, $content, $row_user['user_id']);
-    echo "<script>document.location='index.php?page=detail&id=$id';</script>";
+    if (isset($_POST['comment'])) {
+        $content = $_POST['content'];
+            $cmt = $db_comment->createComment($id, $content, $row_user['user_id']);
+            echo "<script>document.location='index.php?page=detail&id=".$id."'</script>";
+    }
+
+} else {
+    if (isset($_POST['comment'])) { 
+        echo "<script>document.location='index.php?page=login';</script>";
+    }
 }
-
 ?>
+
 <section id="comment" class="section-p1">
     <h3>Comment Product</h3>
     <form method="POST" action="">
@@ -78,10 +85,11 @@ if (isset($_POST['comment'])) {
         $rows_cmt = $db_comment->showCommentByProdID($id);
         foreach ($rows_cmt as $row_cmt) { ?>
             <div class="form-group">
-                <label for="comment">Comment cre: <? echo $row_cmt['email']?></label>
-                <input class="form-control" type="text" value="<? echo $row_cmt['content']?>">
+                <label for="comment">Comment cre: <? echo $row_cmt['email'] ?>
+                </label>
+                <input class="form-control" type="text" value="<? echo $row_cmt['content'] ?>">
             </div>
-            <hr>
+            <hr/>
         <?php } ?>
     </div>
 </section>

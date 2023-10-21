@@ -45,5 +45,13 @@ class Category
         $result = $db->pdo_query_one($query);
         return $result;
     }
+
+    public function number_rows(){
+        $db = new connect();
+        $sql = "SELECT count(*) FROM tb_prod_cate"; 
+        $result = $db->pdo_execute($sql);
+        $number_of_rows = $result->fetchColumn(); 
+        return $number_of_rows;
+    }
 }
 ?>

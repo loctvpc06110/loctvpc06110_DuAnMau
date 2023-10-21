@@ -13,7 +13,7 @@
         $phone = $_POST['customer_phone'];
         $address = $_POST['customer_address'];
 
-        $saveInfo = $db->updateUser($username, $address, $phone, $email, $password);
+        $saveInfo = $db->updateUser($username, $address, $phone, $email, $password, $row_up['user_id']);
         echo "<script>document.location='?page=info';</script>";
     }
 ?>

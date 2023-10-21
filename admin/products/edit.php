@@ -1,7 +1,8 @@
 <?php 
     $id = $_GET['id'];
     $db = new Product();
-    $rowProd = $db->getByID($id); 
+    $rowProd = $db->getByID($id);
+    $rowProdDtl = $db->getDetailProductByID($id);
 ?>
 
 <div class="container-fluid">
@@ -44,6 +45,7 @@
         <div class="form-floating mt-3 mb-3">
             <label>Product category</label>
             <select class="form-control" name="cateID">
+                <option value="<? echo $rowProdDtl['cateID'] ?>"><? echo $rowProdDtl['cate_name'] ?></option>
                 <?php
                 $dbCate = new Category();
                 $rows = $dbCate->getList();

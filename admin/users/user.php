@@ -74,11 +74,19 @@ class User
         return $result;
     }
 
-    public function updateUser($Username, $Address, $Phone, $Email, $Password){
+    public function updateUser($Username, $Address, $Phone, $Email, $Password, $userID){
         $db = new connect();
-        $query = "UPDATE tb_user SET username = '$Username', address = '$Address', phone = '$Phone', email = '$Email', password = '$Password'";
+        $query = "UPDATE tb_user SET username = '$Username', address = '$Address', phone = '$Phone', email = '$Email', password = '$Password' WHERE user_id = '$userID'";
         $result = $db->pdo_execute($query);
         return $result;
+    }
+
+    public function number_rows(){
+        $db = new connect();
+        $sql = "SELECT count(*) FROM tb_user"; 
+        $result = $db->pdo_execute($sql);
+        $number_of_rows = $result->fetchColumn(); 
+        return $number_of_rows;
     }
 }
 
