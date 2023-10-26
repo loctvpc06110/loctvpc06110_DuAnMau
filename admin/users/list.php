@@ -1,3 +1,8 @@
+<?php 
+    if (!isset($_SESSION['admin'])){
+        echo "<script>document.location='index.php?page=login';</script>";
+    }
+?>
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">List User</h1>
 
@@ -16,6 +21,7 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Permissions</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -27,6 +33,7 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>Permissions</th>
+                        <th>Remove</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -43,7 +50,8 @@
                             <td><? echo $row['phone']?></td>
                             <td><? echo $row['email']?></td>
                             <td><? echo $row['password']?></td>
-                            <td><? echo $row['permissions']?></td>         
+                            <td><? echo $row['permissions']?></td>
+                            <td onclick=" return confirm('Bạn có chắc rằng muốn xóa tài khoảng này ?');" ><a href="?page=removeUser&id=<? echo $row['user_id']?>" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>      
                         </tr>
 
                     <?php } ?>

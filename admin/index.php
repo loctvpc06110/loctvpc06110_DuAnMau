@@ -98,6 +98,9 @@
                         case "listUsers":
                             include('users/list.php');
                             break;
+                        case "removeUser":
+                            include('users/remove.php');
+                            break;
                         case "listComments":
                             include('comments/list.php');
                             break;
@@ -160,7 +163,9 @@
     <script src="content/js/demo/datatables-demo.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+
         <?php
         $db_cmt = new Comment();
 
@@ -172,18 +177,18 @@
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: [{
                     label: 'Comment',
-                    data: [<?echo $db_cmt->cmt_month(1)?>,
-                    <?echo $db_cmt->cmt_month(2)?>,
-                    <?echo $db_cmt->cmt_month(3)?>,
-                    <?echo $db_cmt->cmt_month(4)?>,
-                    <?echo $db_cmt->cmt_month(5)?>,
-                    <?echo $db_cmt->cmt_month(6)?>,
-                    <?echo $db_cmt->cmt_month(7)?>,
-                    <?echo $db_cmt->cmt_month(8)?>,
-                    <?echo $db_cmt->cmt_month(9)?>,
-                    <?echo $db_cmt->cmt_month(10)?>,
-                    <?echo $db_cmt->cmt_month(11)?>,
-                    <?echo $db_cmt->cmt_month(12)?>],
+                    data: [<? echo $db_cmt->cmt_month(1) ?>,
+                    <? echo $db_cmt->cmt_month(2) ?>,
+                    <? echo $db_cmt->cmt_month(3) ?>,
+                    <? echo $db_cmt->cmt_month(4) ?>,
+                    <? echo $db_cmt->cmt_month(5) ?>,
+                    <? echo $db_cmt->cmt_month(6) ?>,
+                    <? echo $db_cmt->cmt_month(7) ?>,
+                    <? echo $db_cmt->cmt_month(8) ?>,
+                    <? echo $db_cmt->cmt_month(9) ?>,
+                    <? echo $db_cmt->cmt_month(10) ?>,
+                    <? echo $db_cmt->cmt_month(11) ?>,
+                    <? echo $db_cmt->cmt_month(12) ?>],
                     borderWidth: 1
                 }]
             },

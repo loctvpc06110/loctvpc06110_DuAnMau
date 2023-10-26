@@ -41,8 +41,16 @@ class Category
 
     public function delete($id){
         $db = new connect();
-        $query = "DELETE FROM tb_prod_cate WHERE cateID = '$id'";
+        $query = "DELETE FROM tb_prod_cate WHERE cateID = '$id' AND cateID != '6'";
         $result = $db->pdo_query_one($query);
+        return $result;
+    }
+
+    public function setProdCate($cateID){
+        $db = new connect();
+        $db = new connect();
+        $query = "UPDATE tb_product SET cateID = 6 WHERE cateID = $cateID";
+        $result = $db->pdo_query($query);
         return $result;
     }
 

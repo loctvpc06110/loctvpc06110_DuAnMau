@@ -9,7 +9,7 @@
 
     <?php
     // Limit là số dòng dữ liệu hiển thị mỗi trang
-    $limit = 8;
+    $limit = 12;
 
     // Tìm CURRENT_PAGE
     if (isset($_GET["pagination"])) {
@@ -64,7 +64,7 @@
 </section>
 
 <?php
-$limit = 8;
+$limit = 12;
 
 // tính tổng số dòng dữ liệu
 

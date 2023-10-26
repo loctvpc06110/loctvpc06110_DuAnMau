@@ -63,6 +63,7 @@ if ($logout_user == 'logout_user') {
         include("includes/dtlproduct.php");
     } else if ($url == "info") {
         include("includes/info.php");
+        
     }
     ?>
 

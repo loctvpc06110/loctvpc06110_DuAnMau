@@ -8,7 +8,7 @@
         
         public function getList() {
             $db = new connect();
-            $query = "SELECT * FROM tb_comment"; // viết câu lệnh sql select *
+            $query = "SELECT * FROM tb_comment";
             $result = $db->pdo_query($query);
             return $result;
         }

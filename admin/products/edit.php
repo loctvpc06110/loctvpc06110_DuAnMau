@@ -40,7 +40,7 @@
         </div>
         <div class="form-floating mt-3 mb-3">
             <label>Description</label>
-            <input type="text" class="form-control" placeholder="Enter Description" name="prodDesc" value="<?php echo $rowProd['description']?>">        
+            <textarea name="prodDesc" class="form-control" cols="30" rows="5" required><?php echo $rowProd['description']?></textarea>        
         </div>
         <div class="form-floating mt-3 mb-3">
             <label>Product category</label>

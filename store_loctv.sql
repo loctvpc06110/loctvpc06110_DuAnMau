@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 21, 2023 lúc 03:51 AM
+-- Thời gian đã tạo: Th10 26, 2023 lúc 11:08 PM
 -- Phiên bản máy phục vụ: 8.0.31
 -- Phiên bản PHP: 7.4.33
 
@@ -70,13 +70,7 @@ INSERT INTO `tb_comment` (`cmt_id`, `prod_id`, `content`, `user_id`, `create_at`
 (17, 2, 'San phat tot', 1, '2023-10-13 00:57:48'),
 (18, 2, 'San phat tot', 1, '2023-10-13 00:58:17'),
 (19, 5, 'aaaa', 1, '2023-10-13 00:58:27'),
-(20, 5, 'aaaa', 1, '2023-10-13 00:59:37'),
-(21, 6, 'bui ti phunn', 8, '2023-10-13 07:30:37'),
-(22, 6, 'bui ti phunn', 8, '2023-10-13 07:32:00'),
-(23, 7, 'sin so', 8, '2023-10-13 07:32:14'),
-(24, 8, 'hay', 8, '2023-10-13 07:33:54'),
-(25, 2, 'asd', 8, '2023-10-13 07:36:43'),
-(26, 2, 'asd', 8, '2023-10-13 07:37:39');
+(20, 5, 'aaaa', 1, '2023-10-13 00:59:37');
 
 -- --------------------------------------------------------
 
@@ -139,7 +133,9 @@ INSERT INTO `tb_product` (`productID`, `prd_name`, `prd_status`, `image`, `price
 (22, 'Swearer Chunky Cable', 'Available', 'sweater_02.jpg', 8, 41, 'Stay stylish and snug in this chunky cable-knit sweater. The intricate cable pattern adds a classic touch, while the oversized fit adds a contemporary twist. Made from a blend of warm materials, it\'s perfect for bundling up in colder weather.', 4),
 (23, 'Swearer Effortless Chic', 'Available', 'sweater_03.jpg', 8, 45, 'Elevate your style effortlessly with this chic sweater. The sleek design, clean lines, and subtle details make it a versatile and sophisticated choice. Made from a lightweight fabric, it can be easily layered for a polished look.', 4),
 (24, 'Swearer Colorful Contras', 'Available', 'sweater_04.jpg', 8, 45, 'Add a pop of color to your wardrobe with this sweater featuring bold and contrasting hues. The vibrant combination instantly brightens up your outfit. Made from a soft and cozy fabric, it\'s perfect for adding a cheerful touch to your winter ensemble.', 4),
-(25, 'Swearer Sporty Knit', 'Available', 'sweater_05.jpg', 8, 49, 'Stay active and fashionable in this sporty knit sweater. The breathable and stretchy material allows for easy movement, while the modern design and ribbed details add a touch of athletic style. Whether you\'re hitting the gym or running errands, this sweater combines functionality and fashion.', 4);
+(25, 'Swearer Sporty Knit', 'Available', 'sweater_05.jpg', 8, 49, 'Stay active and fashionable in this sporty knit sweater. The breathable and stretchy material allows for easy movement, while the modern design and ribbed details add a touch of athletic style. Whether you\'re hitting the gym or running errands, this sweater combines functionality and fashion.', 4),
+(31, 'Sweater Đại Dương', 'Available', 'sweater_01.jpg', 11, 100, 'Sweater đại dương, sang sịn mịn chất lượng khỏi phải chê, nhập từ Đu Pai bán bán Chi Na, quẹo lựa quẹo lựa', 4),
+(32, 'Áo giả', 'Available', 'fanpage_tw_01.png', 11, 22, 'Áo giả nha bà con', 6);
 
 -- --------------------------------------------------------
 
@@ -163,7 +159,8 @@ INSERT INTO `tb_prod_cate` (`cateID`, `cate_name`, `create_date`, `update_date`)
 (2, 'Shirt', '2023-09-18 23:22:26', '2023-09-18 23:22:26'),
 (3, 'Polo-Shirt', '2023-09-18 23:22:26', '2023-09-18 23:22:26'),
 (4, 'Sweater', '2023-09-18 23:22:26', '2023-09-18 23:22:26'),
-(5, 'Hoodie', '2023-09-18 23:22:26', '2023-09-18 23:22:26');
+(5, 'Hoodie', '2023-09-18 23:22:26', '2023-09-18 23:22:26'),
+(6, 'Uncategorized', '2023-10-26 19:44:28', '2023-10-26 19:44:28');
 
 -- --------------------------------------------------------
 
@@ -187,9 +184,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`user_id`, `username`, `address`, `phone`, `email`, `password`, `payment`, `permissions`) VALUES
-(1, 'Lộc Shadow', 'Ba Láng, Cái Răng, Cần Thơ', '0345499999', 'loc13@gmail.com', '12341234', 'COD', 'User'),
-(7, NULL, NULL, NULL, 'yatoharem07@gmail.com', '12341234', 'COD', 'Admin'),
-(8, NULL, NULL, NULL, 'locne123@gmail.com', '12341234', 'COD', 'User');
+(1, 'Lộc VIP', 'Ba Láng, Cái Răng, Cần Thơ', '0345499999', 'locne13@gmail.com', '43214321', 'COD', 'User'),
+(7, NULL, NULL, NULL, 'yatoharem07@gmail.com', '12341234', 'COD', 'Admin');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -206,7 +202,7 @@ ALTER TABLE `tb_cart`
 --
 ALTER TABLE `tb_comment`
   ADD PRIMARY KEY (`cmt_id`),
-  ADD KEY `prod_id` (`prod_id`),
+  ADD KEY `tb_comment_ibfk_1` (`prod_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -248,13 +244,13 @@ ALTER TABLE `tb_comment`
 -- AUTO_INCREMENT cho bảng `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `productID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `productID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `tb_prod_cate`
 --
 ALTER TABLE `tb_prod_cate`
-  MODIFY `cateID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cateID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `tb_user`
@@ -270,8 +266,8 @@ ALTER TABLE `tb_user`
 -- Các ràng buộc cho bảng `tb_comment`
 --
 ALTER TABLE `tb_comment`
-  ADD CONSTRAINT `tb_comment_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `tb_product` (`productID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `tb_comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `tb_comment_ibfk_1` FOREIGN KEY (`prod_id`) REFERENCES `tb_product` (`productID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`) ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tb_product`

@@ -72,7 +72,7 @@ if (isset($_POST['register'])) {
 
                     <hr>
                     <div class="text-center">
-                        <a class="small" href="?page=forgotPassword">Forgot Password?</a>
+                        <a class="small" href="$">Forgot Password?</a>
                     </div>
                     <div class="text-center">
                         <a class="small" href="?page=login">Already have an account? Login!</a>

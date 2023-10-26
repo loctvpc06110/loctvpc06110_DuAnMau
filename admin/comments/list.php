@@ -1,3 +1,8 @@
+<?php 
+    if (!isset($_SESSION['admin'])){
+        echo "<script>document.location='index.php?page=login';</script>";
+    }
+?>
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">List Comments</h1>
 

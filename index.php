@@ -32,7 +32,7 @@
     <div class="wrap">
         <div class="d-grid gap-2 col-6 mx-auto">
             <a href="?page=admin"><button class="btn btn-primary btn-lg" type="button" style="width: 100%;">Admin</button></a>
-            <a href="?page=site"><button class="btn btn-secondary btn-lg" type="button" style="width: 100%;">Site</button></a>
+            <a href="?page=site"><button class="btn btn-secondary btn-lg" type="button" style="width: 100%;">Customer</button></a>
         </div>
     </div>
     

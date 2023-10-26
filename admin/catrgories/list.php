@@ -1,3 +1,8 @@
+<?php 
+    if (!isset($_SESSION['admin'])){
+        echo "<script>document.location='index.php?page=login';</script>";
+    }
+?>
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">List Products Categories</h1>
 
@@ -42,7 +47,7 @@
                             <td><? echo $row['create_date']?></td>
                             <td><?echo $row['update_date']?></td>
                             <td><a href="?page=editCate&id=<? echo $row['cateID']?>" class="nav-link"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                            <td><a href="?page=removeCate&id=<? echo $row['cateID']?>" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>
+                            <td onclick=" return confirm('Bạn có chắc rằng muốn xóa ?');" ><a href="?page=removeCate&id=<? echo $row['cateID']?>" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>
                         </tr>
 
                     <?php } ?>

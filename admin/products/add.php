@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <div class="card-header">
         <h2>Add Product</h2>
-        <a href="?act=home" style="padding: 8px;"><i class="fa-solid fa-arrow-left"></i> Back</a>
     </div>
     <form method="post" enctype="multipart/form-data">
         <div class="form-floating mb-3 mt-3">
@@ -29,7 +28,7 @@
         </div>
         <div class="form-floating mt-3 mb-3">
             <label>Description</label>
-            <input type="text" class="form-control" placeholder="Enter Description" name="prodDesc" required>
+            <textarea name="prodDesc" class="form-control" cols="30" rows="5"></textarea>
         </div>
         <div class="form-floating mt-3 mb-3">
             <label>Product category</label>

@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>Email</th>
                         <th>Create At</th>
                         <th>Content</th>
                     </tr>
@@ -46,7 +46,7 @@
                 <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>Email</th>
                         <th>Create At</th>
                         <th>Content</th>   
                     </tr>

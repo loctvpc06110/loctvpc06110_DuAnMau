@@ -29,7 +29,7 @@ class User
     public function checkUserCustomer($Email, $Password)
     {
         $db = new connect();
-        $select = "SELECT * from tb_user WHERE email='$Email' AND password='$Password' AND permissions='User'";
+        $select = "SELECT * from tb_user WHERE email='$Email' AND password='$Password'";
         $result = $db->pdo_query_one($select);
         if ($result != null)
             return true;
@@ -74,9 +74,16 @@ class User
         return $result;
     }
 
-    public function updateUser($Username, $Address, $Phone, $Email, $Password, $userID){
+    public function updateUser($Username, $Address, $Phone, $userID){
         $db = new connect();
-        $query = "UPDATE tb_user SET username = '$Username', address = '$Address', phone = '$Phone', email = '$Email', password = '$Password' WHERE user_id = '$userID'";
+        $query = "UPDATE tb_user SET username = '$Username', address = '$Address', phone = '$Phone' WHERE user_id = '$userID'";
+        $result = $db->pdo_execute($query);
+        return $result;
+    }
+
+    public function changePassword($password, $userID){
+        $db = new connect();
+        $query = "UPDATE tb_user SET password = '$password' WHERE user_id = '$userID'";
         $result = $db->pdo_execute($query);
         return $result;
     }
@@ -87,6 +94,20 @@ class User
         $result = $db->pdo_execute($sql);
         $number_of_rows = $result->fetchColumn(); 
         return $number_of_rows;
+    }
+
+    public function deleUser($userID, $email) {
+        $db = new connect();
+        $query = "DELETE FROM tb_user WHERE user_id = '$userID' AND email != '$email'";
+        $result = $db->pdo_query_one($query);
+        return $result;
+    }
+
+    public function deleCmtUser($userID){
+        $db = new connect();
+        $query = "DELETE FROM tb_comment WHERE user_id = '$userID'";
+        $result = $db->pdo_query($query);
+        return $result;
     }
 }
 
